@@ -92,7 +92,7 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Yrw-rm-q8h">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
-                                <segue destination="Nd9-hF-gj5" kind="modal" identifier="" id="dE7-Uj-vJZ"/>
+                                <segue destination="Nd9-hF-gj5" kind="modal" identifier="showAddNewRestaurant" id="dE7-Uj-vJZ"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

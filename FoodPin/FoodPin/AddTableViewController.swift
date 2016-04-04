@@ -5,7 +5,10 @@
 //  Created by TsoiKaShing on 16/4/3.
 //  Copyright © 2016年 AppCoda. All rights reserved.
 //
-
+protocol AddRestaurantProtocol {
+    
+    func saveRestaurant(restaurant:Restaurant)
+}
 import UIKit
 
 class AddTableViewController: UITableViewController,UIImagePickerControllerDelegate,UINavigationControllerDelegate {
@@ -21,6 +24,8 @@ class AddTableViewController: UITableViewController,UIImagePickerControllerDeleg
     @IBOutlet weak var noButton: UIButton!
     
     @IBOutlet weak var yesButton: UIButton!
+    
+    public var delegate:AddRestaurantProtocol?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,6 +62,8 @@ class AddTableViewController: UITableViewController,UIImagePickerControllerDeleg
         if nameTextField.text?.characters.count > 0 && typeTextField.text?.characters.count > 0 && locationTextField.text?.characters.count > 0  {
             let restaurant = Restaurant(name: nameTextField.text!, type: typeTextField.text!, location: locationTextField.text!, image:"", isVisited: true)
             restaurant.locationImage = headImage.image
+            
+            self.delegate?.saveRestaurant(restaurant)
             
             self.performSegueWithIdentifier("unwindToHomeScreen", sender: self)
             
