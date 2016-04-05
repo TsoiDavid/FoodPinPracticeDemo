@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="14F1605" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="mGC-Th-I6S">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="mGC-Th-I6S">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -513,9 +513,9 @@
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rek-Jj-y2B">
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rek-Jj-y2B">
                                                     <rect key="frame" x="8" y="37" width="46" height="30"/>
-                                                    <color key="backgroundColor" red="0.97039473679999999" green="0.29803921570000003" blue="0.31372549020000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="30" id="KeQ-lj-i8U"/>
                                                         <constraint firstAttribute="width" constant="46" id="bxj-oY-OVZ"/>
@@ -523,8 +523,12 @@
                                                     <state key="normal" title="YES">
                                                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
+                                                    <state key="selected" title="YES"/>
+                                                    <connections>
+                                                        <action selector="clickButton:" destination="BRp-Ea-sM3" eventType="touchUpInside" id="Ahu-Xx-5vh"/>
+                                                    </connections>
                                                 </button>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tsj-0R-Tve">
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tsj-0R-Tve">
                                                     <rect key="frame" x="70" y="37" width="46" height="30"/>
                                                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
@@ -534,6 +538,10 @@
                                                     <state key="normal" title="NO">
                                                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
+                                                    <state key="selected" title="NO"/>
+                                                    <connections>
+                                                        <action selector="clickButton:" destination="BRp-Ea-sM3" eventType="touchUpInside" id="S26-Lu-sG5"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
@@ -574,7 +582,7 @@
                         <outlet property="nameTextField" destination="T4Q-ni-vSt" id="a03-g6-aEG"/>
                         <outlet property="noButton" destination="tsj-0R-Tve" id="GaI-7a-UDP"/>
                         <outlet property="typeTextField" destination="gSJ-hz-qgh" id="dTm-Dw-DWp"/>
-                        <outlet property="yesButton" destination="rek-Jj-y2B" id="3Ig-1S-2KH"/>
+                        <outlet property="yesButton" destination="rek-Jj-y2B" id="0Ww-hb-TmO"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aTd-fq-sDw" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -703,7 +711,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l5S-LF-WAm" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="2ZK-su-p8a" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="952" y="940"/>
+            <point key="canvasLocation" x="1072" y="1002"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="g2w-5f-Ype">

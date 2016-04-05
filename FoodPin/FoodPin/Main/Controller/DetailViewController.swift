@@ -12,7 +12,7 @@ import CoreLocation
 class DetailViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet var restaurantImageView:UIImageView!
     @IBOutlet var tableView:UITableView!
-    var restaurant:Restaurant!
+    var restaurant:FoodPinRestaurant!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,7 +20,7 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
         
         
         // Do any additional setup after loading the view.
-        self.restaurantImageView.image = UIImage(named: restaurant.image)
+        self.restaurantImageView.image = UIImage(data: restaurant.image!)
         
         // Set table view background color
         self.tableView.backgroundColor = UIColor(red: 240.0/255.0, green: 240.0/255.0, blue: 240.0/255.0, alpha: 0.2)
@@ -43,11 +43,6 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
         
         self.navigationController?.hidesBarsOnSwipe = false
         self.navigationController?.setNavigationBarHidden(false, animated: true)
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     
@@ -76,7 +71,7 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
             cell.valueLabel.text = restaurant.location
         case 3:
             cell.fieldLabel.text = "Been here"
-            cell.valueLabel.text = (restaurant.isVisited) ? "Yes, I've been here before" : "No"
+            cell.valueLabel.text = (restaurant.isVisited!.boolValue) ? "Yes, I've been here before" : "No"
         default:
             cell.fieldLabel.text = ""
             cell.valueLabel.text = ""

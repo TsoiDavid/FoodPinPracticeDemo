@@ -14,7 +14,7 @@ class MapViewController: UIViewController,MKMapViewDelegate {
     
     @IBOutlet weak var mapView: MKMapView!
     
-    var restaurant : Restaurant!
+    var restaurant : FoodPinRestaurant!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,7 +39,7 @@ class MapViewController: UIViewController,MKMapViewDelegate {
             annotaionView?.canShowCallout = true
         }
         let leftView = UIImageView(frame: CGRectMake(0, 0, 50, 50))
-        leftView.image = UIImage(named: restaurant.image)
+        leftView.image = UIImage(data: restaurant.image!)
         annotaionView?.leftCalloutAccessoryView = leftView
         return annotaionView
 
@@ -51,7 +51,7 @@ class MapViewController: UIViewController,MKMapViewDelegate {
         
         print("restaurant.location ==== \(restaurant.location)")
         
-        geoCoder.geocodeAddressString(restaurant.location) { (placemarks:[CLPlacemark]?, error:NSError?) -> Void in
+        geoCoder.geocodeAddressString(restaurant.location!) { (placemarks:[CLPlacemark]?, error:NSError?) -> Void in
             if let e = error {
                 print("error === \(e)")
                 return

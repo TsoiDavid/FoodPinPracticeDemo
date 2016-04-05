@@ -7,9 +7,10 @@
 //
 protocol AddRestaurantProtocol {
     
-    func saveRestaurant(restaurant:Restaurant)
+    func saveRestaurant(restaurant:FoodPinRestaurant)
 }
 import UIKit
+import CoreData
 
 class AddTableViewController: UITableViewController,UIImagePickerControllerDelegate,UINavigationControllerDelegate {
 
@@ -25,11 +26,15 @@ class AddTableViewController: UITableViewController,UIImagePickerControllerDeleg
     
     @IBOutlet weak var yesButton: UIButton!
     
-    public var delegate:AddRestaurantProtocol?
+    var isVisited :Bool! = true
+    
+    var restaurant : FoodPinRestaurant!
+ 
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+     yesButton.backgroundColor = UIColor.redColor()
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -59,11 +64,28 @@ class AddTableViewController: UITableViewController,UIImagePickerControllerDeleg
     }
     
     @IBAction func save(sender: UIBarButtonItem) {
-        if nameTextField.text?.characters.count > 0 && typeTextField.text?.characters.count > 0 && locationTextField.text?.characters.count > 0  {
-            let restaurant = Restaurant(name: nameTextField.text!, type: typeTextField.text!, location: locationTextField.text!, image:"", isVisited: true)
-            restaurant.locationImage = headImage.image
+        if nameTextField.text?.characters.count > 0 && typeTextField.text?.characters.count > 0 && locationTextField.text?.characters.count >= 0  {
             
-            self.delegate?.saveRestaurant(restaurant)
+            if let managerdObjectContext = (UIApplication.sharedApplication().delegate as? AppDelegate)?.managedObjectContext {
+                restaurant = NSEntityDescription.insertNewObjectForEntityForName("Restaurant", inManagedObjectContext: managerdObjectContext) as? FoodPinRestaurant
+                restaurant.name = nameTextField.text
+                restaurant.type = typeTextField.text
+                restaurant.location = locationTextField.text
+                restaurant.image = UIImagePNGRepresentation(headImage.image!)
+                restaurant.isVisited = isVisited
+                print("isViewited === \(isVisited)")
+                print("restaurant.isVisited ===\(restaurant.isVisited)")
+                
+                do {
+                    
+                    try managerdObjectContext.save()
+                    
+                } catch {
+                    fatalError("不能保存:\(error)")
+                }
+                
+            }
+
             
             self.performSegueWithIdentifier("unwindToHomeScreen", sender: self)
             
@@ -75,8 +97,27 @@ class AddTableViewController: UITableViewController,UIImagePickerControllerDeleg
             
         }
     }
- 
-
+    func setButtonAttribute() {
+        yesButton.backgroundColor = UIColor.redColor()
+    }
+    
+    @IBAction func clickButton(sender: UIButton) {
+  
+        switch sender.currentTitle! {
+        case "YES":
+            print("print Yes")
+            yesButton.backgroundColor = UIColor.redColor()
+            noButton.backgroundColor = UIColor.grayColor()
+            isVisited = true
+        case "NO":
+            print("print No")
+            yesButton.backgroundColor = UIColor.grayColor()
+            noButton.backgroundColor = UIColor.redColor()
+            isVisited = false
+        default: return
+        }
+    }
+  
     
     // MARK: - Navigation
 
