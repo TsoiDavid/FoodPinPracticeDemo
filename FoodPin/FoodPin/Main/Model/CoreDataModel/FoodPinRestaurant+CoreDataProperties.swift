@@ -13,7 +13,7 @@ import Foundation
 import CoreData
 
 extension FoodPinRestaurant {
-
+    
     @NSManaged var name: String!
     @NSManaged var type: String!
     @NSManaged var location: String!

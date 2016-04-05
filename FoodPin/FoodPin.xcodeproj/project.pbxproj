@@ -19,6 +19,8 @@
 		840507A31CB350DF00ED0655 /* FoodPin.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 840507A11CB350DF00ED0655 /* FoodPin.xcdatamodeld */; };
 		840507AC1CB36E5800ED0655 /* FoodPinRestaurant+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840507AA1CB36E5800ED0655 /* FoodPinRestaurant+CoreDataProperties.swift */; };
 		840507AD1CB36E5800ED0655 /* FoodPinRestaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840507AB1CB36E5800ED0655 /* FoodPinRestaurant.swift */; };
+		840507F81CB3BF7800ED0655 /* PageContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840507F71CB3BF7800ED0655 /* PageContentViewController.swift */; };
+		840507FA1CB3C51D00ED0655 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840507F91CB3C51D00ED0655 /* PageViewController.swift */; };
 		F4444CA319989F2800977F20 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4444CA219989F2800977F20 /* AppDelegate.swift */; };
 		F4444CA819989F2800977F20 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F4444CA619989F2800977F20 /* Main.storyboard */; };
 		F4444CAA19989F2900977F20 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F4444CA919989F2900977F20 /* Images.xcassets */; };
@@ -48,6 +50,8 @@
 		840507A21CB350DF00ED0655 /* FoodPin.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FoodPin.xcdatamodel; sourceTree = "<group>"; };
 		840507AA1CB36E5800ED0655 /* FoodPinRestaurant+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FoodPinRestaurant+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		840507AB1CB36E5800ED0655 /* FoodPinRestaurant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodPinRestaurant.swift; sourceTree = "<group>"; };
+		840507F71CB3BF7800ED0655 /* PageContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageContentViewController.swift; sourceTree = "<group>"; };
+		840507F91CB3C51D00ED0655 /* PageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 		F4444C9D19989F2800977F20 /* FoodPin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FoodPin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4444CA119989F2800977F20 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F4444CA219989F2800977F20 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -99,6 +103,8 @@
 				840507911CB350B900ED0655 /* RestaurantTableViewController.swift */,
 				840507921CB350B900ED0655 /* ReviewViewController.swift */,
 				840507931CB350B900ED0655 /* ShareViewController.swift */,
+				840507F71CB3BF7800ED0655 /* PageContentViewController.swift */,
+				840507F91CB3C51D00ED0655 /* PageViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -291,6 +297,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				840507A31CB350DF00ED0655 /* FoodPin.xcdatamodeld in Sources */,
+				840507FA1CB3C51D00ED0655 /* PageViewController.swift in Sources */,
 				840507981CB350B900ED0655 /* CustomTableViewCell.swift in Sources */,
 				8405079B1CB350B900ED0655 /* MapViewController.swift in Sources */,
 				840507AC1CB36E5800ED0655 /* FoodPinRestaurant+CoreDataProperties.swift in Sources */,
@@ -299,6 +306,7 @@
 				8405079A1CB350B900ED0655 /* DetailViewController.swift in Sources */,
 				840507991CB350B900ED0655 /* DetailTableViewCell.swift in Sources */,
 				8405079E1CB350B900ED0655 /* ShareViewController.swift in Sources */,
+				840507F81CB3BF7800ED0655 /* PageContentViewController.swift in Sources */,
 				840507AD1CB36E5800ED0655 /* FoodPinRestaurant.swift in Sources */,
 				8405079D1CB350B900ED0655 /* ReviewViewController.swift in Sources */,
 				840507971CB350B900ED0655 /* AddTableViewController.swift in Sources */,

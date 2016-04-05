@@ -73,14 +73,12 @@ class AddTableViewController: UITableViewController,UIImagePickerControllerDeleg
                 restaurant.location = locationTextField.text
                 restaurant.image = UIImagePNGRepresentation(headImage.image!)
                 restaurant.isVisited = isVisited
-                print("isViewited === \(isVisited)")
-                print("restaurant.isVisited ===\(restaurant.isVisited)")
                 
                 do {
                     
                     try managerdObjectContext.save()
                     
-                } catch {
+                }catch {
                     fatalError("不能保存:\(error)")
                 }
                 

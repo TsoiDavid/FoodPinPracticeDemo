@@ -4,6 +4,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--Food Pin-->
@@ -712,6 +713,79 @@
                 <exit id="2ZK-su-p8a" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1072" y="1002"/>
+        </scene>
+        <!--Page Content View Controller-->
+        <scene sceneID="DVl-iO-mAt">
+            <objects>
+                <viewController id="V1p-Cb-kNi" customClass="PageContentViewController" customModule="FoodPin" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="1hM-IY-IaZ"/>
+                        <viewControllerLayoutGuide type="bottom" id="fui-Sz-2OL"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="slM-Ue-Xex">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sXZ-sE-acM">
+                                <rect key="frame" x="20" y="70" width="280" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="SI3-2y-mKW"/>
+                                </constraints>
+                                <attributedString key="attributedText">
+                                    <fragment content="Heading">
+                                        <attributes>
+                                            <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <font key="NSFont" size="20" name="HelveticaNeue"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3TA-k6-FuI">
+                                <rect key="frame" x="20" y="121" width="280" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="Buc-xD-87A"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="RVa-yy-Ep3">
+                                <rect key="frame" x="0.0" y="284" width="320" height="284"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="RVa-yy-Ep3" firstAttribute="leading" secondItem="slM-Ue-Xex" secondAttribute="leading" id="3ou-kw-cTY"/>
+                            <constraint firstAttribute="trailing" secondItem="RVa-yy-Ep3" secondAttribute="trailing" id="7Yn-NH-qJX"/>
+                            <constraint firstItem="fui-Sz-2OL" firstAttribute="top" secondItem="RVa-yy-Ep3" secondAttribute="bottom" id="BuO-1q-IqK"/>
+                            <constraint firstItem="RVa-yy-Ep3" firstAttribute="height" secondItem="slM-Ue-Xex" secondAttribute="height" multiplier="0.5" id="L29-S2-zNz"/>
+                            <constraint firstItem="3TA-k6-FuI" firstAttribute="top" secondItem="sXZ-sE-acM" secondAttribute="bottom" constant="30" id="LRb-1D-lLZ"/>
+                            <constraint firstItem="sXZ-sE-acM" firstAttribute="leading" secondItem="slM-Ue-Xex" secondAttribute="leading" constant="20" id="Xlf-kj-gBW"/>
+                            <constraint firstAttribute="trailing" secondItem="sXZ-sE-acM" secondAttribute="trailing" constant="20" id="Ybd-cO-fny"/>
+                            <constraint firstItem="3TA-k6-FuI" firstAttribute="leading" secondItem="slM-Ue-Xex" secondAttribute="leading" constant="20" id="csh-Oo-QEs"/>
+                            <constraint firstItem="sXZ-sE-acM" firstAttribute="top" secondItem="1hM-IY-IaZ" secondAttribute="bottom" constant="50" id="dgF-KQ-cYQ"/>
+                            <constraint firstAttribute="trailing" secondItem="3TA-k6-FuI" secondAttribute="trailing" constant="20" id="kMz-nQ-Hza"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="contentImageView" destination="RVa-yy-Ep3" id="1kQ-I7-hJY"/>
+                        <outlet property="headingLabel" destination="sXZ-sE-acM" id="Shy-FT-TlY"/>
+                        <outlet property="subHeadIngLabel" destination="3TA-k6-FuI" id="2kW-t5-Ilm"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wSX-mW-7Dk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-647" y="-306"/>
+        </scene>
+        <!--Page View Controller-->
+        <scene sceneID="XCU-eU-Thu">
+            <objects>
+                <pageViewController storyboardIdentifier="PageViewController" autoresizesArchivedViewToFullSize="NO" transitionStyle="pageCurl" navigationOrientation="horizontal" spineLocation="min" id="5jC-6H-TcV" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="f5X-vx-SvV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-306" y="-306"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="g2w-5f-Ype">

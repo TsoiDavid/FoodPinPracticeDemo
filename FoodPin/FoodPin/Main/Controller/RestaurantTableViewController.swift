@@ -9,11 +9,22 @@
 import UIKit
 import CoreData
 
-class RestaurantTableViewController: UITableViewController,AddRestaurantProtocol {
+class RestaurantTableViewController: UITableViewController,AddRestaurantProtocol,NSFetchedResultsControllerDelegate,UISearchResultsUpdating {
     var restaurants:[FoodPinRestaurant] = []
-    
+    var searchController:UISearchController!
+//    var searchResults:[fo]
+    var searchResult:[FoodPinRestaurant] = []
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        searchController = UISearchController(searchResultsController : nil)
+        searchController.searchBar.sizeToFit()
+        searchController.searchResultsUpdater = self
+        searchController.dimsBackgroundDuringPresentation = false
+        tableView.tableHeaderView = searchController.searchBar
+        
+        definesPresentationContext = true
+        
         
         // Empty back button title
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .Plain, target: nil, action: nil)
@@ -22,6 +33,7 @@ class RestaurantTableViewController: UITableViewController,AddRestaurantProtocol
         self.tableView.estimatedRowHeight = 80.0;
         self.tableView.rowHeight = UITableViewAutomaticDimension;
     }
+
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
@@ -34,6 +46,9 @@ class RestaurantTableViewController: UITableViewController,AddRestaurantProtocol
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // Return the number of rows in the section.
+        if searchController.active {
+            return searchResult.count
+        }
         return self.restaurants.count
     }
 
@@ -44,13 +59,14 @@ class RestaurantTableViewController: UITableViewController,AddRestaurantProtocol
         let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! CustomTableViewCell
         
         // Configure the cell...
-        let restaurant = restaurants[indexPath.row]
+        let restaurant = (searchController.active) ? searchResult[indexPath.row] : restaurants[indexPath.row]
+       
         cell.nameLabel.text = restaurant.name
         cell.thumbnailImageView.image = UIImage(data: restaurant.image!)
         cell.locationLabel.text = restaurant.location
         cell.typeLabel.text = restaurant.type
         cell.favorIconImageView.hidden = !restaurant.isVisited.boolValue
-        print("restaurant.isVisited.boolValue === \(restaurant.isVisited.boolValue)")
+   
         // Circular image
         cell.thumbnailImageView.layer.cornerRadius = cell.thumbnailImageView.frame.size.width / 2
         cell.thumbnailImageView.clipsToBounds = true
@@ -61,7 +77,11 @@ class RestaurantTableViewController: UITableViewController,AddRestaurantProtocol
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
    
     }
-
+    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        //如果搜索条在使用的时候不允许滑动删除
+        if searchController.active {return false}
+        return true
+    }
     override func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction] {
         let shareAction = UITableViewRowAction(style: UITableViewRowActionStyle.Default, title: "Share", handler: { (action:UITableViewRowAction, indexPath:NSIndexPath) -> Void in
             
@@ -105,7 +125,7 @@ class RestaurantTableViewController: UITableViewController,AddRestaurantProtocol
         if segue.identifier == "showRestaurantDetail" {
             if let indexPath = self.tableView.indexPathForSelectedRow {
                 let destinationController = segue.destinationViewController as! DetailViewController
-                destinationController.restaurant = restaurants[indexPath.row]
+                destinationController.restaurant = (searchController.active) ? searchResult[indexPath.row] : restaurants[indexPath.row]
             }
             
         }
@@ -146,14 +166,26 @@ class RestaurantTableViewController: UITableViewController,AddRestaurantProtocol
 
         }
     }
-
     
+    //MARK: - SearchBarController
+    func filterContentForSearchText(searchText:String) {
+        searchResult = restaurants.filter({ (restaurant:FoodPinRestaurant) -> Bool in
+            let nameMatch = restaurant.name.rangeOfString(searchText,options: NSStringCompareOptions.CaseInsensitiveSearch)
+            return nameMatch != nil
+        })
+    }
+    func updateSearchResultsForSearchController(searchController: UISearchController) {
+        let searchText = searchController.searchBar.text
+        filterContentForSearchText(searchText!)
+        self.tableView.reloadData()
+    }
     func saveRestaurant(restaurant: FoodPinRestaurant) {
         self.restaurants.insert(restaurant, atIndex: 0)
         self.tableView.reloadData()
         
     }
     
+    //其他页面返回方法
     @IBAction func unwindtoHomeScreen(segue:UIStoryboardSegue) {
         
     }
