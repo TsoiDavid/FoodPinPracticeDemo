@@ -18,11 +18,11 @@ class RestaurantTableViewController: UITableViewController,AddRestaurantProtocol
         super.viewDidLoad()
         
         
-//        if let pageViewController =
-//            storyboard?.instantiateViewControllerWithIdentifier("PageViewController") as?
-//            PageViewController {
-//            self.presentViewController(pageViewController, animated: true, completion: nil)
-//        }
+        if let pageViewController =
+            storyboard?.instantiateViewControllerWithIdentifier("PageViewController") as?
+            PageViewController {
+            self.presentViewController(pageViewController, animated: false, completion: nil)
+        }
         
         searchController = UISearchController(searchResultsController : nil)
         searchController.searchBar.sizeToFit()
@@ -39,6 +39,10 @@ class RestaurantTableViewController: UITableViewController,AddRestaurantProtocol
         // Self Sizing Cells
         self.tableView.estimatedRowHeight = 80.0;
         self.tableView.rowHeight = UITableViewAutomaticDimension;
+        
+        
+        
+      
     }
 
     
@@ -69,7 +73,7 @@ class RestaurantTableViewController: UITableViewController,AddRestaurantProtocol
         let restaurant = (searchController.active) ? searchResult[indexPath.row] : restaurants[indexPath.row]
        
         cell.nameLabel.text = restaurant.name
-        cell.thumbnailImageView.image = UIImage(data: restaurant.image!)
+//        cell.thumbnailImageView.image = UIImage(data: restaurant.image!)
         cell.locationLabel.text = restaurant.location
         cell.typeLabel.text = restaurant.type
         cell.favorIconImageView.hidden = !restaurant.isVisited.boolValue
@@ -148,11 +152,11 @@ class RestaurantTableViewController: UITableViewController,AddRestaurantProtocol
             
             do {
                 let fetchedObjects = try managedObjcetContext.executeFetchRequest(fetchRequest)
-                
-                restaurants.removeAll()
+                print("fetchedObjects == \(fetchedObjects)")
+//                restaurants.removeAll()
                 restaurants = fetchedObjects as![FoodPinRestaurant]
-                restaurants = restaurants.reverse()
-
+//                restaurants = restaurants.reverse()
+//         
                 self.tableView.reloadData()
             }catch {
                 fatalError("不能保存:\(error)")
@@ -197,11 +201,7 @@ class RestaurantTableViewController: UITableViewController,AddRestaurantProtocol
         
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-        print("memory waring")
-    }
+    
 
 
 }
