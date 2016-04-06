@@ -717,7 +717,7 @@
         <!--Page Content View Controller-->
         <scene sceneID="DVl-iO-mAt">
             <objects>
-                <viewController id="V1p-Cb-kNi" customClass="PageContentViewController" customModule="FoodPin" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PageContentViewController" id="V1p-Cb-kNi" customClass="PageContentViewController" customModule="FoodPin" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="1hM-IY-IaZ"/>
                         <viewControllerLayoutGuide type="bottom" id="fui-Sz-2OL"/>
@@ -782,7 +782,7 @@
         <!--Page View Controller-->
         <scene sceneID="XCU-eU-Thu">
             <objects>
-                <pageViewController storyboardIdentifier="PageViewController" autoresizesArchivedViewToFullSize="NO" transitionStyle="pageCurl" navigationOrientation="horizontal" spineLocation="min" id="5jC-6H-TcV" sceneMemberID="viewController"/>
+                <pageViewController storyboardIdentifier="PageViewController" autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="5jC-6H-TcV" customClass="PageViewController" customModule="FoodPin" customModuleProvider="target" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f5X-vx-SvV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-306" y="-306"/>

@@ -17,6 +17,13 @@ class RestaurantTableViewController: UITableViewController,AddRestaurantProtocol
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+//        if let pageViewController =
+//            storyboard?.instantiateViewControllerWithIdentifier("PageViewController") as?
+//            PageViewController {
+//            self.presentViewController(pageViewController, animated: true, completion: nil)
+//        }
+        
         searchController = UISearchController(searchResultsController : nil)
         searchController.searchBar.sizeToFit()
         searchController.searchResultsUpdater = self
@@ -190,6 +197,11 @@ class RestaurantTableViewController: UITableViewController,AddRestaurantProtocol
         
     }
 
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+        print("memory waring")
+    }
 
 
 }

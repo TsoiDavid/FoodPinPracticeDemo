@@ -18,6 +18,7 @@ class PageContentViewController: UIViewController {
     var heading : String = ""
     var imageFile : String = ""
     var subHeading : String = ""
+    var pageindex : NSInteger = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
